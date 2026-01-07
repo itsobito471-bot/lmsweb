@@ -1,6 +1,6 @@
 <header
-    class="fixed top-6 left-1/2 -translate-x-1/2 w-[95%] max-w-7xl z-50 bg-white/90 backdrop-blur-md border border-gray-200/50 shadow-lg rounded-2xl transition-all duration-500 ease-out hover:shadow-xl hover:bg-white/95">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    class="fixed top-4 md:top-6 left-1/2 -translate-x-1/2 w-[95%] md:w-[95%] max-w-7xl z-50 bg-white/90 backdrop-blur-md border border-gray-200/50 shadow-lg rounded-2xl transition-all duration-500 ease-out hover:shadow-xl hover:bg-white/95">
+    <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
         <div class="logo flex items-center gap-2 cursor-pointer">
             <div class="logo-icon">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -8,8 +8,24 @@
                     <path d="M10 22V10L22 16L10 22Z" fill="white" />
                 </svg>
             </div>
-            <span class="text-xl font-bold text-gray-900">CommLearn</span>
+            <span class="text-lg md:text-xl font-bold text-gray-900">CommLearn</span>
         </div>
+
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button (click)="toggleMenu()"
+            class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-colors">
+            <svg *ngIf="!isMenuOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg *ngIf="isMenuOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
 
         <nav class="hidden md:block">
             <ul class="flex gap-8">
@@ -22,7 +38,8 @@
             </ul>
         </nav>
 
-        <div class="flex items-center gap-6">
+        <!-- Desktop Auth Buttons -->
+        <div class="hidden md:flex items-center gap-6">
             <div class="relative hidden lg:block">
                 <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" width="18" height="18"
                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -34,12 +51,42 @@
                     class="w-64 pl-10 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-sm focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all">
             </div>
 
-            <div class="auth-buttons flex items-center gap-4">
-                <button class="font-semibold text-gray-600 hover:text-blue-600 transition-colors">Log In</button>
+            <div class="auth-buttons flex items-center gap-2 md:gap-4">
                 <button
-                    class="bg-blue-600 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">Start
+                    class="font-semibold text-sm md:text-base text-gray-600 hover:text-blue-600 transition-colors">Log
+                    In</button>
+                <button
+                    class="bg-blue-600 text-white px-4 md:px-6 py-2 md:py-2.5 rounded-full text-sm md:text-base font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">Start
                     Free</button>
             </div>
         </div>
+    </div>
+
+    <!-- Mobile Menu Dropdown -->
+    <div *ngIf="isMenuOpen" class="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
+        <nav class="px-4 py-4">
+            <ul class="space-y-3">
+                <li><a href="#"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Topics</a>
+                </li>
+                <li><a href="#"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Accounting</a>
+                </li>
+                <li><a href="#"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Finance</a>
+                </li>
+                <li><a href="#"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Economics</a>
+                </li>
+            </ul>
+            <div class="mt-4 pt-4 border-t border-gray-200 flex flex-col gap-3">
+                <button
+                    class="w-full py-2.5 font-semibold text-gray-600 hover:text-blue-600 transition-colors text-center">Log
+                    In</button>
+                <button
+                    class="w-full bg-blue-600 text-white py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-600/20">Start
+                    Free</button>
+            </div>
+        </nav>
     </div>
 </header>
