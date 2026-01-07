@@ -1,69 +1,62 @@
 <section class="py-20 bg-white">
     <div class="max-w-7xl mx-auto px-6">
+        <!-- Header with Navigation Buttons -->
         <div class="flex justify-between items-end mb-12">
             <div>
                 <h2 class="text-3xl font-bold text-gray-900">Student Success Stories</h2>
             </div>
             <div class="flex gap-2">
-                <button
-                    class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-blue-600 hover:text-blue-600 transition-all"><svg
-                        width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button (click)="prevTestimonial()"
+                    class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-blue-600 hover:text-blue-600 transition-all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15 18 9 12 15 6"></polyline>
-                    </svg></button>
-                <button
-                    class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-blue-600 hover:text-blue-600 transition-all"><svg
-                        width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    </svg>
+                </button>
+                <button (click)="nextTestimonial()"
+                    class="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-50 hover:border-blue-600 hover:text-blue-600 transition-all">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9 18 15 12 9 6"></polyline>
-                    </svg></button>
+                    </svg>
+                </button>
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div
-                class="testimonial-card bg-white p-10 rounded-[24px] border border-gray-100 hover:border-blue-600 hover:shadow-xl transition-all duration-300 group">
-                <div class="mb-6 opacity-20 group-hover:opacity-100 transition-opacity">
+        <!-- Mobile: Single Testimonial Carousel -->
+        <div class="md:hidden relative">
+            <div class="testimonial-card bg-white p-8 rounded-[24px] border border-gray-100 shadow-lg">
+                <div class="mb-6 opacity-20">
                     <svg width="32" height="32" viewBox="0 0 24 24" class="fill-blue-600">
                         <path
                             d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2 21L2 18C2 16.8954 2.89543 16 4 16H7C7.55228 16 8 15.5523 8 15V9C8 8.44772 7.55228 8 7 8H4C2.89543 8 2 7.10457 2 6V3L10 3V15C10 18.3137 7.31371 21 4 21H2Z">
                         </path>
                     </svg>
                 </div>
-                <p class="text-lg text-gray-700 italic leading-relaxed min-h-[120px]">"I passed my CPA exam on the first
-                    try thanks to the structured learning paths on
-                    CommLearn. The instructors make complex tax laws easy to understand."</p>
-                <div class="flex items-center gap-4 mt-8">
-                    <img src="https://i.pravatar.cc/48?img=5" alt="Sarah Jenkins"
+                <p class="text-base md:text-lg text-gray-700 italic leading-relaxed mb-6">
+                    "{{ testimonials[currentIndex].text }}"
+                </p>
+                <div class="flex items-center gap-4">
+                    <img [src]="testimonials[currentIndex].image" [alt]="testimonials[currentIndex].name"
                         class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <div class="font-bold text-gray-900">Sarah Jenkins</div>
-                        <div class="text-xs font-bold text-gray-500 tracking-wider">CPA CANDIDATE</div>
+                        <div class="font-bold text-gray-900">{{ testimonials[currentIndex].name }}</div>
+                        <div class="text-xs font-bold text-gray-500 tracking-wider">{{ testimonials[currentIndex].role
+                            }}</div>
                     </div>
                 </div>
             </div>
 
-            <div
-                class="testimonial-card bg-white p-10 rounded-[24px] border border-gray-100 hover:border-blue-600 hover:shadow-xl transition-all duration-300 group">
-                <div class="mb-6 opacity-20 group-hover:opacity-100 transition-opacity">
-                    <svg width="32" height="32" viewBox="0 0 24 24" class="fill-blue-600">
-                        <path
-                            d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H16.017C14.9124 8 14.017 7.10457 14.017 6V3L22.017 3V15C22.017 18.3137 19.3307 21 16.017 21H14.017ZM2 21L2 18C2 16.8954 2.89543 16 4 16H7C7.55228 16 8 15.5523 8 15V9C8 8.44772 7.55228 8 7 8H4C2.89543 8 2 7.10457 2 6V3L10 3V15C10 18.3137 7.31371 21 4 21H2Z">
-                        </path>
-                    </svg>
-                </div>
-                <p class="text-lg text-gray-700 italic leading-relaxed min-h-[120px]">"The Financial Modeling bootcamp
-                    helped me secure a promotion to Senior Analyst.
-                    The real-world case studies were invaluable."</p>
-                <div class="flex items-center gap-4 mt-8">
-                    <img src="https://i.pravatar.cc/48?img=6" alt="Michael Chen"
-                        class="w-12 h-12 rounded-full object-cover">
-                    <div>
-                        <div class="font-bold text-gray-900">Michael Chen</div>
-                        <div class="text-xs font-bold text-gray-500 tracking-wider">FINANCIAL ANALYST</div>
-                    </div>
-                </div>
+            <!-- Dots Indicator -->
+            <div class="flex justify-center gap-2 mt-6">
+                <button *ngFor="let testimonial of testimonials; let i = index" (click)="goToTestimonial(i)"
+                    [class]="i === currentIndex ? 'w-8 h-2 bg-blue-600' : 'w-2 h-2 bg-gray-300'"
+                    class="rounded-full transition-all duration-300">
+                </button>
             </div>
+        </div>
 
-            <div
+        <!-- Desktop: Grid View (3 columns) -->
+        <div class="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div *ngFor="let testimonial of testimonials"
                 class="testimonial-card bg-white p-10 rounded-[24px] border border-gray-100 hover:border-blue-600 hover:shadow-xl transition-all duration-300 group">
                 <div class="mb-6 opacity-20 group-hover:opacity-100 transition-opacity">
                     <svg width="32" height="32" viewBox="0 0 24 24" class="fill-blue-600">
@@ -72,15 +65,14 @@
                         </path>
                     </svg>
                 </div>
-                <p class="text-lg text-gray-700 italic leading-relaxed min-h-[120px]">"As a small business owner,
-                    learning bookkeeping and basic corporate law saved me
-                    thousands in consulting fees. Highly recommended!"</p>
-                <div class="flex items-center gap-4 mt-8">
-                    <img src="https://i.pravatar.cc/48?img=7" alt="Elena Rodriguez"
-                        class="w-12 h-12 rounded-full object-cover">
+                <p class="text-lg text-gray-700 italic leading-relaxed min-h-[120px] mb-6">
+                    "{{ testimonial.text }}"
+                </p>
+                <div class="flex items-center gap-4">
+                    <img [src]="testimonial.image" [alt]="testimonial.name" class="w-12 h-12 rounded-full object-cover">
                     <div>
-                        <div class="font-bold text-gray-900">Elena Rodriguez</div>
-                        <div class="text-xs font-bold text-gray-500 tracking-wider">BUSINESS OWNER</div>
+                        <div class="font-bold text-gray-900">{{ testimonial.name }}</div>
+                        <div class="text-xs font-bold text-gray-500 tracking-wider">{{ testimonial.role }}</div>
                     </div>
                 </div>
             </div>

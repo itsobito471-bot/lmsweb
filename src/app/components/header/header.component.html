@@ -29,11 +29,15 @@
 
         <nav class="hidden md:block">
             <ul class="flex gap-8">
-                <li><a href="#" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Topics</a></li>
-                <li><a href="#" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Accounting</a>
+                <li><a href="#home" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Home</a>
                 </li>
-                <li><a href="#" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Finance</a></li>
-                <li><a href="#" class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Economics</a>
+                <li><a href="#courses"
+                        class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Courses</a>
+                </li>
+                <li><a href="#categories"
+                        class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Categories</a></li>
+                <li><a href="#testimonials"
+                        class="font-medium text-gray-600 hover:text-blue-600 transition-colors">Testimonials</a>
                 </li>
             </ul>
         </nav>
@@ -63,20 +67,20 @@
     </div>
 
     <!-- Mobile Menu Dropdown -->
-    <div *ngIf="isMenuOpen" class="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md">
+    <div *ngIf="isMenuOpen" @slideDown
+        class="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md overflow-hidden">
         <nav class="px-4 py-4">
             <ul class="space-y-3">
-                <li><a href="#"
-                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Topics</a>
+                <li><a href="#home" (click)="toggleMenu()"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Home</a></li>
+                <li><a href="#courses" (click)="toggleMenu()"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Courses</a>
                 </li>
-                <li><a href="#"
-                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Accounting</a>
+                <li><a href="#categories" (click)="toggleMenu()"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Categories</a>
                 </li>
-                <li><a href="#"
-                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Finance</a>
-                </li>
-                <li><a href="#"
-                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Economics</a>
+                <li><a href="#testimonials" (click)="toggleMenu()"
+                        class="block py-2 font-medium text-gray-700 hover:text-blue-600 transition-colors">Testimonials</a>
                 </li>
             </ul>
             <div class="mt-4 pt-4 border-t border-gray-200 flex flex-col gap-3">
