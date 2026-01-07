@@ -15,5 +15,9 @@ export class LandingPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void { }
 
   ngAfterViewInit(): void {
+    // Refresh ScrollTrigger to ensure start/end positions are correct after all content loads
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
   }
 }

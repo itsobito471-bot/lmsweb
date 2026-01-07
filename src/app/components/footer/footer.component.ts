@@ -14,12 +14,13 @@ export class FooterComponent implements AfterViewInit {
       scrollTrigger: {
         trigger: 'app-footer',
         start: 'top 95%',
-        toggleActions: 'play none none none' // Play once
+        toggleActions: 'play none none none'
       },
-      y: 30,
+      y: 80,
+      scale: 0.9,
       opacity: 0,
-      duration: 1,
-      ease: 'power2.out'
+      duration: 1.2,
+      ease: 'elastic.out(1, 0.5)'
     });
   }
 }
