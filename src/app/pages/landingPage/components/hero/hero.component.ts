@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-hero',
@@ -7,7 +8,9 @@ import { gsap } from 'gsap';
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit, AfterViewInit {
-  constructor() { }
+  constructor() {
+    gsap.registerPlugin(ScrollTrigger);
+  }
 
   ngOnInit(): void { }
 
@@ -28,7 +31,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
       delay: 0.5
     });
 
-    // Floating animations
+    // Floating animations (Keep existing but enhance with scroll)
     gsap.to('.card-1', {
       y: -15,
       duration: 2,
@@ -44,6 +47,56 @@ export class HeroComponent implements OnInit, AfterViewInit {
       yoyo: true,
       ease: 'power1.inOut',
       delay: 0.3
+    });
+
+    // Parallax Scroll Effects
+    // Move the main image slightly slower than scroll to create depth
+    gsap.to('.main-image-wrapper', {
+      scrollTrigger: {
+        trigger: 'section',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: true
+      },
+      y: 50, // Reduced vertical movement
+      x: 100, // Move to the right
+      ease: 'none'
+    });
+
+    // Move cards at different speeds for 3D feel
+    gsap.to('.card-1', {
+      scrollTrigger: {
+        trigger: 'section',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1.5
+      },
+      y: -50, // Move up/counter-act scroll more
+      ease: 'none'
+    });
+
+    gsap.to('.card-2', {
+      scrollTrigger: {
+        trigger: 'section',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 1
+      },
+      y: 80, // Move down faster
+      ease: 'none'
+    });
+
+    // Parallax for text content
+    gsap.to('.flex-col > *', {
+      scrollTrigger: {
+        trigger: 'section',
+        start: 'top top',
+        end: 'bottom top',
+        scrub: 0.5
+      },
+      y: -30,
+      stagger: 0.05,
+      ease: 'none'
     });
   }
 }
