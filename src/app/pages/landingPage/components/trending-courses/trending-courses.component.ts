@@ -12,26 +12,42 @@ gsap.registerPlugin(ScrollTrigger);
 export class TrendingCoursesComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
-    // Use a slight delay to ensure DOM is ready
     setTimeout(() => {
-      const cards = document.querySelectorAll('.course-card');
+      const container = document.querySelector('.horizontal-scroll-container');
+      const cards = document.querySelector('.horizontal-scroll-cards');
 
-      if (cards.length > 0) {
-        gsap.from('.course-card', {
-          scrollTrigger: {
-            trigger: 'app-trending-courses',
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-            once: true
-          },
-          y: 30,
-          scale: 0.95,
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.1,
-          ease: 'power2.out',
-          clearProps: 'all' // Clear props after animation completes
-        });
+      if (container && cards) {
+        const cardsElement = cards as HTMLElement;
+        const containerWidth = window.innerWidth;
+        const totalWidth = cardsElement.scrollWidth;
+
+        // Only enable horizontal scroll if content is wider than viewport
+        if (totalWidth > containerWidth) {
+          // Add generous padding to ensure last card is fully visible
+          const paddingRight = Math.max(containerWidth * 0.5, 500); // 50% of viewport or 500px minimum
+          cardsElement.style.paddingRight = `${paddingRight}px`;
+
+          // Recalculate after adding padding
+          const newTotalWidth = cardsElement.scrollWidth;
+          const scrollWidth = newTotalWidth - containerWidth;
+
+          gsap.to(cards, {
+            x: -scrollWidth,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: container,
+              start: 'top 20%',
+              end: () => `+=${scrollWidth + 500}`,
+              scrub: 1,
+              pin: true,
+              anticipatePin: 1,
+              invalidateOnRefresh: true
+            }
+          });
+        } else {
+          // If content fits in viewport, center it instead
+          cardsElement.style.justifyContent = 'center';
+        }
       }
     }, 100);
   }

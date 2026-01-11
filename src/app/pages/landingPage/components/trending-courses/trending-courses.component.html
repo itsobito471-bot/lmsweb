@@ -1,5 +1,5 @@
-<section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-6">
+<section class="horizontal-scroll-container bg-white">
+    <div class="max-w-7xl mx-auto px-6 py-12">
         <div class="flex flex-col md:flex-row justify-between md:items-end mb-12 gap-6">
             <div class="max-w-xl">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Trending Finance Courses</h2>
@@ -28,10 +28,11 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Horizontal Scrolling Cards Container -->
+        <div class="horizontal-scroll-cards flex gap-8 pb-20">
             <!-- Course Card 1 -->
             <div
-                class="course-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                class="course-card flex-shrink-0 w-[320px] group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div class="relative h-48 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop"
                         alt="Finance course"
@@ -70,7 +71,7 @@
 
             <!-- Course Card 2 -->
             <div
-                class="course-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                class="course-card flex-shrink-0 w-[320px] group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div class="relative h-48 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800&auto=format&fit=crop"
                         alt="AI in Finance"
@@ -107,7 +108,7 @@
 
             <!-- Course Card 3 -->
             <div
-                class="course-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                class="course-card flex-shrink-0 w-[320px] group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div class="relative h-48 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=800&auto=format&fit=crop"
                         alt="Excel course"
@@ -146,7 +147,7 @@
 
             <!-- Course Card 4 -->
             <div
-                class="course-card group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                class="course-card flex-shrink-0 w-[320px] group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
                 <div class="relative h-48 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1554774853-719586f82d77?q=80&w=800&auto=format&fit=crop"
                         alt="Corporate Finance"
@@ -176,6 +177,82 @@
                         <div class="flex items-center gap-2">
                             <span class="text-sm line-through text-gray-400">$85.00</span>
                             <span class="text-xl font-extrabold text-blue-600">$14.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 5 (Extra for scrolling) -->
+            <div
+                class="course-card flex-shrink-0 w-[320px] group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop"
+                        alt="Data Analytics"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-4 mb-3 text-xs font-medium text-gray-500">
+                        <span class="flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg> 20h 15m</span>
+                        <span class="flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg> 11k views</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2 h-[3.5rem]">Data Analytics for Finance
+                        Professionals</h3>
+                    <p class="text-sm text-gray-500 mb-4">Michael Torres</p>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="font-bold text-amber-600">4.8</span>
+                        <div class="text-amber-400 text-xs tracking-widest">★★★★★</div>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm line-through text-gray-400">$90.00</span>
+                            <span class="text-xl font-extrabold text-blue-600">$17.99</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Course Card 6 (Extra for scrolling) -->
+            <div
+                class="course-card flex-shrink-0 w-[320px] group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:-translate-y-2 hover:shadow-xl transition-all duration-300">
+                <div class="relative h-48 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=800&auto=format&fit=crop"
+                        alt="Investment Banking"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute top-3 left-3 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded">
+                        TRENDING</div>
+                </div>
+                <div class="p-5">
+                    <div class="flex items-center gap-4 mb-3 text-xs font-medium text-gray-500">
+                        <span class="flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg> 25h 00m</span>
+                        <span class="flex items-center gap-1"><svg width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg> 14k views</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2 line-clamp-2 h-[3.5rem]">Investment Banking
+                        Fundamentals</h3>
+                    <p class="text-sm text-gray-500 mb-4">Alexandra Kim</p>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="font-bold text-amber-600">4.9</span>
+                        <div class="text-amber-400 text-xs tracking-widest">★★★★★</div>
+                    </div>
+                    <div class="flex justify-between items-center pt-4 border-t border-gray-50">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm line-through text-gray-400">$120.00</span>
+                            <span class="text-xl font-extrabold text-blue-600">$22.99</span>
                         </div>
                     </div>
                 </div>
